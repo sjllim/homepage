@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>KH homepage</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="static/css/common.css">
+</head>
+<body>
+    <h1 align="center">Welcome to KH homepage</h1>
+    <br>
+    <div class="login-area" align="right">
+        <!-- /* 로그인 전 표시할 부분 */ -->
+        <div th:if="${session.loginUser == null}">
+            <form action="login.me" method="post">
+                <table>
+                    <tr>
+                        <td>아이디</td>
+                        <td>
+                            <input type="text" name="userId"/>
+                        </td>
+                        <td rowspan="2">
+                            <button type="submit" style="height:50px;">로그인</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>패스워드</td>
+                        <td><input type="password" name="userPwd"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" align="center">
+                            <a class="r-a-style" href="enrollForm.me">회원가입</a>
+                            <a class="r-a-style" href="">아이디/비번찾기</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+        <!-- /* 로그인 후 표시할 부분 */ -->
+        <div th:if="${session.loginUser != null}">
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <h3 th:text="${session.loginUser.userName} + '님 환영합니다^^'"></h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a class="r-a-style" href="myPage.me">마이페이지</a></td>
+                    <td><a class="r-a-style" href="logout.me">로그아웃</a></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <br>
+    <div class="nav-area" align="center">
+        <!-- /*
+            [ Thymeleaf 에서의 URL 문법 ]
+              - th:href 속성에 @{...} 문법 사용
+              - 전달 데이터 (요청 파라미터)가 있는 경우
+                * 매개변수 정의
+                  => @{요청uri(매개변수명=값,매개변수명=값)}
+                     ex) @{/board/detail(bno=256)} -> /board/detail?bno=256
+              - 동적 주소 처리
+                * 변수 템플릿 사용
+                  => @{요청url/{동적데이터변수}/나머지주소(동적데이터변수=동적데이터값)}
+                     ex) @{/board/{category}(category='best')} -> /board/best
+        */ -->
+        <a class="menu r-a-style" th:href="@{/}">HOME</a>
+        <a class="menu r-a-style">공지사항</a>
+        <a class="menu r-a-style" th:href="@{list.bo(cpage=1)}">게시판</a>
+        <a class="menu r-a-style">ETC</a>
+    </div>
+</body>
+</html>

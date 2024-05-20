@@ -1,0 +1,30 @@
+html,body { height: 100%; margin:0; padding:0; }
+
+.login-area a { font-size: 12px;}
+.login-area a:hover { background: #fea7c2; color: white; }
+
+.nav-area { background: #fea7c2; color: white;
+            height: 50px;}
+
+.menu { display: table-cell;
+        width: 250px; height: 50px;
+        vertical-align: middle;
+        font-size: 20px;
+        font-weight: bold;
+    }
+.menu:hover { background: #ffcd9c; cursor: pointer;}
+
+/* 공통적으로 사용되는 css */
+.outer {
+    width: 1000px;
+    background: #fea7c2;
+    color: white;
+    margin: auto;
+    margin-top: 50px;
+    height: calc(100vh - 350px);
+}
+#list-area {
+    text-align: center;
+}
+.r-a-style { color: black; text-decoration: none; }
+.nav-area a { color: white; }

@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ERROR PAGE</title>
+</head>
+<body>
+    <th:block th:insert="~{common/menuBar}"></th:block>
+    <h1 align="center" th:text="${errorMsg}"></h1>
+</body>
+</html>

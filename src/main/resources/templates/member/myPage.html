@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>KH homepage</title>
+    <script src="static/js/member.js"></script>
+</head>
+<body>
+    <th:block th:insert="~{common/menuBar}"></th:block>
+
+    <div class="outer">
+        <br>
+        <h1 align="center">마이페이지</h1>
+        <br>
+        <form action="#" method="post">
+            <table align="center">
+                <tr>
+                    <td>아이디</td>
+                    <td>
+                        <input type="text" name="userId" th:value="${ session.loginUser.userId }" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>패스워드</td>
+                    <td>
+                        <input type="password" name="userPwd" th:value="${ session.loginUser.userPwd }" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>이름</td>
+                    <td>
+                        <input type="text" name="userName" th:value="${ session.loginUser.userName }" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>이메일</td>
+                    <td>
+                        <input type="email" name="email" th:value="${ session.loginUser.email }">
+                    </td>
+                </tr>
+                <tr>
+                    <td>생년월일</td>
+                    <td>
+                        <input type="text" name="birthday" th:value="${ session.loginUser.birthday }" placeholder="yymmdd(6자리)">
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;성별</td>
+                    <td align="center">
+                        <input type="hidden" id="userGender" th:value="${session.loginUser.gender}"/>
+                        <input type="radio" name="gender" th:value="M" /> 남
+                        <input type="radio" name="gender" th:value="F" /> 여
+                    </td>
+                </tr>
+                <tr>
+                    <td>연락처</td>
+                    <td>
+                        <input type="text" name="phone" th:value="${ session.loginUser.phone }" placeholder="-포함">
+                    </td>
+                </tr>
+                <tr>
+                    <td>주소</td>
+                    <td>
+                        <input type="text" name="address" th:value="${ session.loginUser.address }">
+                    </td>
+                </tr>
+            </table>
+            <br>
+        </form>
+    </div>    
+</body>
+</html>
